@@ -1,4 +1,4 @@
-# Wplace Contributor Scanner 1.5
+# Wplace Contributor Scanner 1.5.1
 
 English | [한국어](README_KO.md) | [日本語](README_JA.md) | [简体中文](README_ZH_CN.md)
 
@@ -49,15 +49,15 @@ To allow access from another device on a trusted LAN, explicitly use `--host 0.0
 
 ## Basic workflow
 
-1. Import a template with 'Import template JSON/ZIP', or create one with 'Create screenshot region template'.
+1. Import a template with **Import template JSON/ZIP**, or create one with **Create screenshot region template**.
 2. Select the project.
 3. Review the query settings. The defaults are intentionally conservative.
-4. Click 'Compare with current canvas'.
-5. Confirm the candidate count, then click 'Start/continue collection'.
-6. Use 'Pause' before changing important settings, exporting final data, or merging collaboration results.
-7. Export 'CSV' or 'PDF' after collection and representative-region analysis finish.
+4. Click **Compare with current canvas**.
+5. Confirm the candidate count, then click **Start/continue collection**.
+6. Use **Pause** before changing important settings, exporting final data, or merging collaboration results.
+7. Export **CSV** or **PDF** after collection and representative-region analysis finish.
 
-Clicking 'Start/continue collection' on an unprepared project automatically performs the comparison first.
+Clicking **Start/continue collection** on an unprepared project automatically performs the comparison first.
 
 ## Template types and calculation modes
 
@@ -67,12 +67,12 @@ The importer accepts ordinary Blue Marble template exports. If a ZIP contains `t
 
 ### Screenshot region template
 
-1. Click 'Create screenshot region template'.
+1. Click **Create screenshot region template**.
 2. Enter the top-left and bottom-right Wplace tile/pixel coordinates.
-3. Click 'Capture current region'.
+3. Click **Capture current region**.
 4. Erase unrelated pixels until only the intended artwork remains.
 5. Choose a template name and calculation mode.
-6. Click 'Create template project'.
+6. Click **Create template project**.
 
 Editor functions:
 
@@ -85,7 +85,7 @@ Editor functions:
 - Restore to the state when the editor was opened
 - Restore the entire original capture
 
-'Edit current screenshot template' reloads the original capture and current mask. Saving creates a corrected new project; the existing project and its scan progress remain unchanged.
+**Edit current screenshot template** reloads the original capture and current mask. Saving creates a corrected new project; the existing project and its scan progress remain unchanged.
 
 ### Color-match mode
 
@@ -99,14 +99,14 @@ Transparent pixels are always excluded.
 
 ## Collection settings
 
-- 'Request interval:' Minimum delay per worker. Lower values increase request volume.
-- 'Jitter ratio:' Adds random delay variation so workers do not send perfectly synchronized requests.
-- 'Network timeout:' Maximum wait for one request.
-- 'Disk checkpoint:' Number of successful pixels between progress writes.
-- 'Parallel workers:' Number of simultaneous pixel lookups. Total request volume rises approximately in proportion to this value.
-- 'Protective-response retry:' HTTP 403, 429, and 451 cause all workers to wait together and retry the same pixel.
-- 'Collaboration shard count / work number:' Fixed partition used when several nodes share the same candidate list.
-- 'Advanced endpoints:' Override only when you intentionally use different compatible endpoints.
+- **Request interval:** Minimum delay per worker. Lower values increase request volume.
+- **Jitter ratio:** Adds random delay variation so workers do not send perfectly synchronized requests.
+- **Network timeout:** Maximum wait for one request.
+- **Disk checkpoint:** Number of successful pixels between progress writes.
+- **Parallel workers:** Number of simultaneous pixel lookups. Total request volume rises approximately in proportion to this value.
+- **Protective-response retry:** HTTP 403, 429, and 451 cause all workers to wait together and retry the same pixel.
+- **Collaboration shard count / work number:** Fixed partition used when several nodes share the same candidate list.
+- **Advanced endpoints:** Override only when you intentionally use different compatible endpoints.
 
 A browser window is only a controller. Closing it does not stop the server process or an active scan. Stop the console process when you intend to shut down the program.
 
@@ -123,7 +123,7 @@ After a scan pauses, completes, or merges results, the program analyzes:
 - Top five overall colors plus Other
 - Top five representative-region colors plus Other
 
-Running 'Compare with current canvas' again resets candidate progress, worker results, collaboration order, and analysis for that project. The interface requires a two-step confirmation because the reset cannot be undone.
+Running **Compare with current canvas** again resets candidate progress, worker results, collaboration order, and analysis for that project. The interface requires a two-step confirmation because the reset cannot be undone.
 
 ## CSV and PDF export
 
@@ -139,7 +139,7 @@ Optional PDF fields:
 
 - Work start date/time
 - Work end date/time
-- Up to 2,000 characters of 'What you want to say'
+- Up to 2,000 characters of **What you want to say**
 
 These fields are stored per project in the current browser and do not affect scan results. Clearing browser site data removes these fields but does not delete project progress.
 
@@ -147,39 +147,39 @@ On minimal Linux systems, install a CJK font package such as Noto Sans CJK if CJ
 
 ## Collaboration
 
-All nodes must use files generated by Wplace Contributor Scanner 1.5 and must work from the same collaboration start file.
+All nodes must use files generated by Wplace Contributor Scanner 1.5.1 and must work from the same collaboration start file.
 
 ### Main node
 
 1. Import and prepare the original project.
 2. Set the collaboration shard count and save settings.
-3. Click 'Export collaboration start file'.
+3. Click **Export collaboration start file**.
 4. Send the same ZIP to every participant node.
 5. Keep the original project on the main node; do not import its own start file.
 6. Assign the main node a unique work number and start collection.
 
 ### Participant node
 
-1. Click 'Import collaboration start file'.
+1. Click **Import collaboration start file**.
 2. Choose a work number that no other node uses.
-3. Save settings. Do not run 'Compare with current canvas'.
+3. Save settings. Do not run **Compare with current canvas**.
 4. Start collection.
-5. Pause and click 'Export work result' when finished or when sending an intermediate result.
+5. Pause and click **Export work result** when finished or when sending an intermediate result.
 
 ### Merge and redistribute
 
-1. On the main node, select one or more participant result ZIPs with 'Merge work result'.
+1. On the main node, select one or more participant result ZIPs with **Merge work result**.
 2. Wait for every selected file to finish validation and merging.
 3. Merge all received results before redistributing work.
-4. To split only the remaining unchecked pixels again, set the new shard count and click 'Restart remaining-work distribution'.
+4. To split only the remaining unchecked pixels again, set the new shard count and click **Restart remaining-work distribution**.
 5. Stop every node using the previous start file and distribute the newly generated file to all nodes.
 
 Work numbers are 1-based in the interface and must be unique among concurrently running nodes.
 
 ## Project and data management
 
-- 'Rename project' changes the display name only.
-- 'Delete project' removes its saved progress. If no other project uses the imported source template, that source is removed as well. Deletion cannot be undone.
+- **Rename project** changes the display name only.
+- **Delete project** removes its saved progress. If no other project uses the imported source template, that source is removed as well. Deletion cannot be undone.
 - Stop the program before manually copying, moving, or deleting files under `data`.
 
 Important paths:
@@ -192,7 +192,7 @@ data/inbox/              Temporary uploads; successful imports are removed autom
 data/deleted-projects.json  Deleted-project record used by the project list
 ```
 
-For backup or migration, close the program and copy the entire `data` directory. Project and collaboration files are validated against the current 1.5 public formats; do not manually combine or modify their contents.
+For backup or migration, close the program and copy the entire `data` directory. Project and collaboration files are validated against the current 1.5.1 public formats; do not manually combine or modify their contents.
 
 ## Important warnings
 
@@ -208,7 +208,7 @@ For backup or migration, close the program and copy the entire `data` directory.
 
 ### A project remains in the list after manual file deletion
 
-Close the console process completely, then restart. Prefer the built-in 'Delete project' button.
+Close the console process completely, then restart. Prefer the built-in **Delete project** button.
 
 ### Start/continue is disabled
 

@@ -46,7 +46,7 @@ class CollaborationPackage:
             if int(self.manifest.get("formatVersion", -1)) != COLLABORATION_FORMAT_VERSION:
                 raise ValueError(
                     "지원하지 않는 협업 파일 형식입니다. "
-                    "Wplace Contributor Scanner 1.5에서 생성한 파일을 사용하세요."
+                    "Wplace Contributor Scanner 1.5.1에서 생성한 파일을 사용하세요."
                 )
         except Exception:
             try:

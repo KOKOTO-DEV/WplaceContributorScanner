@@ -163,7 +163,7 @@ class ScannerProject:
         if int(meta.get("formatVersion", -1)) != PROJECT_FORMAT_VERSION:
             raise ValueError(
                 "지원하지 않는 프로젝트 데이터 형식입니다. "
-                "Wplace Contributor Scanner 1.5에서 새로 만든 프로젝트만 사용할 수 있습니다."
+                "Wplace Contributor Scanner 1.5.1에서 새로 만든 프로젝트만 사용할 수 있습니다."
             )
         if str(meta.get("projectId") or "") != self.template.project_id:
             raise ValueError("프로젝트 ID가 원본 템플릿과 일치하지 않습니다.")

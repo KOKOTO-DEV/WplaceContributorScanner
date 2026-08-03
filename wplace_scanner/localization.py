@@ -464,24 +464,24 @@ _EXACT.update({'PNG 형식이 아닙니다.': {'en': 'The file is not a PNG imag
  '전체 작업 분배 정보가 후보 픽셀 수와 일치하지 않습니다.': {'en': 'The full assignment information does not match the candidate-pixel count.',
                                       'ja': '全体作業の割り当て情報が候補ピクセル数と一致しません。',
                                       'zh-CN': '完整任务分配信息与候选像素数不一致。'},
- '지원하지 않는 스크린샷 템플릿 형식입니다. Wplace Contributor Scanner 1.5에서 생성한 템플릿을 사용하세요.': {'en': 'This screenshot-template format is not supported. Use '
-                                                                                    'a template created by Wplace Contributor Scanner 1.5.',
+ '지원하지 않는 스크린샷 템플릿 형식입니다. Wplace Contributor Scanner 1.5.1에서 생성한 템플릿을 사용하세요.': {'en': 'This screenshot-template format is not supported. Use '
+                                                                                    'a template created by Wplace Contributor Scanner 1.5.1.',
                                                                               'ja': 'このスクリーンショットテンプレート形式には対応していません。Wplace Contributor '
-                                                                                    'Scanner 1.5で作成したテンプレートを使用してください。',
-                                                                              'zh-CN': '不支持此截图模板格式。请使用 Wplace Contributor Scanner 1.5 '
+                                                                                    'Scanner 1.5.1で作成したテンプレートを使用してください。',
+                                                                              'zh-CN': '不支持此截图模板格式。请使用 Wplace Contributor Scanner 1.5.1 '
                                                                                        '创建的模板。'},
- '지원하지 않는 프로젝트 데이터 형식입니다. Wplace Contributor Scanner 1.5에서 새로 만든 프로젝트만 사용할 수 있습니다.': {'en': 'This project-data format is not supported. '
+ '지원하지 않는 프로젝트 데이터 형식입니다. Wplace Contributor Scanner 1.5.1에서 새로 만든 프로젝트만 사용할 수 있습니다.': {'en': 'This project-data format is not supported. '
                                                                                             'Only projects newly created by Wplace '
-                                                                                            'Contributor Scanner 1.5 can be used.',
+                                                                                            'Contributor Scanner 1.5.1 can be used.',
                                                                                       'ja': 'このプロジェクトデータ形式には対応していません。Wplace Contributor '
-                                                                                            'Scanner 1.5で新規作成したプロジェクトのみ使用できます。',
+                                                                                            'Scanner 1.5.1で新規作成したプロジェクトのみ使用できます。',
                                                                                       'zh-CN': '不支持此项目数据格式。只能使用 Wplace Contributor Scanner '
-                                                                                               '1.5 新建的项目。'},
- '지원하지 않는 협업 파일 형식입니다. Wplace Contributor Scanner 1.5에서 생성한 파일을 사용하세요.': {'en': 'This collaboration-file format is not supported. Use a '
-                                                                                'file created by Wplace Contributor Scanner 1.5.',
+                                                                                               '1.5.1 新建的项目。'},
+ '지원하지 않는 협업 파일 형식입니다. Wplace Contributor Scanner 1.5.1에서 생성한 파일을 사용하세요.': {'en': 'This collaboration-file format is not supported. Use a '
+                                                                                'file created by Wplace Contributor Scanner 1.5.1.',
                                                                           'ja': 'この共同作業ファイル形式には対応していません。Wplace Contributor Scanner '
-                                                                                '1.5で作成したファイルを使用してください。',
-                                                                          'zh-CN': '不支持此协作文件格式。请使用 Wplace Contributor Scanner 1.5 创建的文件。'},
+                                                                                '1.5.1で作成したファイルを使用してください。',
+                                                                          'zh-CN': '不支持此协作文件格式。请使用 Wplace Contributor Scanner 1.5.1 创建的文件。'},
  '프로젝트 ID가 원본 템플릿과 일치하지 않습니다.': {'en': 'The project ID does not match the source template.',
                                  'ja': 'プロジェクトIDが元テンプレートと一致しません。',
                                  'zh-CN': '项目 ID 与原始模板不一致。'},

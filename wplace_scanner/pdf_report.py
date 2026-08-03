@@ -19,7 +19,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas as pdf_canvas
 from reportlab.graphics.shapes import Drawing, Rect
 from reportlab.platypus import Image as RLImage
-from reportlab.platypus import KeepInFrame, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.platypus import KeepInFrame, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 from PIL import Image as PILImage
 from pypdf import PdfReader, PdfWriter
@@ -341,10 +341,17 @@ class _TrackedImage(RLImage):
         self._tracker = tracker
 
     def drawOn(self, canv: Any, x: float, y: float, _sW: float = 0) -> None:
+        # ReportLab applies hAlign inside Flowable.drawOn(). Record the adjusted
+        # coordinate as well; otherwise a centered portrait image receives a link
+        # rectangle at the frame's left edge instead of over the visible image.
+        aligned_x = self._hAlignAdjust(x, _sW)
         super().drawOn(canv, x, y, _sW)
         self._tracker.update({
             "pageIndex": int(canv.getPageNumber()) - 1,
-            "rect": (float(x), float(y), float(x + self.drawWidth), float(y + self.drawHeight)),
+            "rect": (
+                float(aligned_x), float(y),
+                float(aligned_x + self.drawWidth), float(y + self.drawHeight),
+            ),
         })
 
 
@@ -692,13 +699,20 @@ def build_pdf_report(
     story.extend([note_table, PageBreak()])
 
     if snapshot_path and Path(snapshot_path).exists():
-        story.append(Paragraph(tr["snapshot"], h2_style))
-        story.append(_scaled_image(Path(snapshot_path), 272 * mm, 170 * mm, snapshot_tracker))
-        story.append(Paragraph(f'<font color="#1267a5">{_escape(tr["snapshot_click"])}</font>', small_style))
+        snapshot_block: list[Any] = [
+            Paragraph(tr["snapshot"], h2_style),
+            # Leave enough vertical room for the instruction and comparison time.
+            # KeepTogether below then guarantees that portrait images do not push
+            # the comparison timestamp onto a blank following page.
+            _scaled_image(Path(snapshot_path), 272 * mm, 158 * mm, snapshot_tracker),
+            Paragraph(f'<font color="#1267a5">{_escape(tr["snapshot_click"])}</font>', small_style),
+        ]
         if snapshot_at:
             snapshot_time = _format_iso_timestamp(snapshot_at, tr['missing'], report_timezone)
-            story.append(Paragraph(f"{tr['snapshot_at']}: {_escape(snapshot_time)}", small_style))
-        story.append(PageBreak())
+            snapshot_block.append(
+                Paragraph(f"{tr['snapshot_at']}: {_escape(snapshot_time)}", small_style)
+            )
+        story.extend([KeepTogether(snapshot_block), PageBreak()])
 
     table_data: list[list[Any]] = [[
         Paragraph(tr["rank"], header_style), Paragraph(tr["worker"], header_style),

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.1 — 2026-08-03
+
+- Fixed portrait artwork pages so the clickable area follows the visible centered image and the canvas comparison timestamp remains on the same page.
+
+
 ## 1.5.0 — First public release (2026-07-19)
 
 - Imports Blue Marble JSON/ZIP templates and creates editable templates from a selected Wplace screenshot region.

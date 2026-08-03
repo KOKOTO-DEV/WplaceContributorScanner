@@ -113,7 +113,7 @@ def load_blue_marble_templates(path: str | Path) -> list[BlueMarbleTemplate]:
         if int(doc.get("formatVersion", -1)) != SNAPSHOT_TEMPLATE_FORMAT_VERSION:
             raise ValueError(
                 "지원하지 않는 스크린샷 템플릿 형식입니다. "
-                "Wplace Contributor Scanner 1.5에서 생성한 템플릿을 사용하세요."
+                "Wplace Contributor Scanner 1.5.1에서 생성한 템플릿을 사용하세요."
             )
         if set(doc) != {"format", "formatVersion", "sourceDigest", "templates"}:
             raise ValueError("스크린샷 템플릿 항목 구성이 올바르지 않습니다.")
